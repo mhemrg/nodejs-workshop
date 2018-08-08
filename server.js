@@ -1,6 +1,13 @@
-const math = require('./math');
+const express = require('express');
 
-const result = math.addMethod(5, 5);
+const app = express();
 
-console.log(result);
+app.get('/about', function (req, res) {
+    res.json({ hello: 'world' });
+});
 
+app.post('/book/create', function (req, res) {
+    res.json({ message: 'successfully created.' });
+});
+
+app.listen(3020);

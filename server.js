@@ -9,6 +9,10 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use('/book', function (req, res, next) {
+    next();
+});
+
 function auth(req, res, next) {
     const { token } = req.query;
 

@@ -1,10 +1,14 @@
 require('./connectToDB');
 
+const bodyParser = require('body-parser');
 const express = require('express');
+const User = require('./models/User');
 
 const app = express();
 
 const VALID_TOKEN = 'hello';
+
+app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
     console.log('New Request', req.url, req.method);
@@ -32,6 +36,18 @@ app.get('/about', function (req, res) {
 
 app.post('/book/create', auth, function (req, res) {
     res.json({ message: 'successfully created.' });
+});
+
+app.post('/register', function (req, res) {
+    const { username, password } = req.body;
+
+    User.create({
+        username,
+        password,
+        createdAt: new Date
+    }).then(function () {
+        res.json({ message: 'user created.' });
+    });
 });
 
 app.use(function (req, res, next) {

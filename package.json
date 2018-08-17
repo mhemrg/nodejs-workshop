@@ -2,10 +2,11 @@
   "name": "node-tuts",
   "version": "1.0.0",
   "scripts": {
-    "start": "node app/server.js"
+    "start": "nodemon app/server.js"
   },
   "dependencies": {
     "express": "^4.16.3",
-    "mongoose": "^5.2.8"
+    "mongoose": "^5.2.8",
+    "nodemon": "^1.18.3"
   }
 }

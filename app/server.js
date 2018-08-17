@@ -1,3 +1,5 @@
+require('./connectToDB');
+
 const express = require('express');
 
 const app = express();
